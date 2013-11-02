@@ -1,0 +1,13 @@
+<h1>Welcome to Rewsley</h1>
+<ul>
+<% @stories.each do |story| %>
+    <% if story.upvotes >= 4 && story.created_at > 1.days.ago%>
+         <li>[<%= story.upvotes %>]
+            <%=  link_to "#{story.title}", story.link %>
+            (<%= story.category %>), 
+            <%=link_to "Show", story_path(story.id)%>
+            <%= link_to "Upvote", "/upvote/#{story.id}" %>
+        </li>   
+    <%end %>
+<% end %>
+</ul>

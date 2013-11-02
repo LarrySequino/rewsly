@@ -1,0 +1,11 @@
+<h1>Search Results for: '<%= @term %>'s</h1>
+
+<ul>
+<% @stories.each do |story| %>
+    <li>[<%= story.upvotes %>]
+            <%=  link_to "#{story.title}", story.link %>
+            (<%= story.category %>), 
+            <%=link_to "Show", "/stories/#{story.id}" %>
+    </li>
+<% end %>
+</ul>
